@@ -1,21 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: namespaxe
-  namespace: pyinc
+  name: tracker-app
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
-      app: namespaxe
+      app: tracker-app
   template:
     metadata:
       labels:
-        app: namespaxe
+        app: tracker-app
     spec:
       containers:
-        - name: namespaxe-container
-          image: pyinc/pyinc:ssr-1.2.8
+        - name: tracker-app-container
+          image: tracker-app/task-tracker:latest
           resources:
             requests:
               memory: "90Mi"
@@ -23,5 +22,3 @@ spec:
             limits:
               memory: "100Mi"
               cpu: "100m"
-      imagePullSecrets:
-        - name: pyinc-secret
