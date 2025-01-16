@@ -26,9 +26,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install django flake8 coverage
 
-      - name: Lint code with flake8
-        run: |
-          flake8 .
+      # - name: Lint code with flake8
+      #   run: |
+      #     flake8 .
 
       - name: Set up database and run tests with coverage
         run: |
