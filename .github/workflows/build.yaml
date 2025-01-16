@@ -53,7 +53,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          tags: ${{ secrets.D_USERNAME }}/task-tracker:latest
+          tags: ${{ secrets.D_USERNAME }}/task:1.0
           push: true
 
       # Step 8: Log in to Namespaxe using GitHub secrets
