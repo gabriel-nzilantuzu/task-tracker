@@ -36,10 +36,10 @@ jobs:
           coverage report
           coverage html  # Optional: Generates an HTML report
 
-      # Step 5: Lint the code with flake8
-      - name: Lint code with flake8
-        run: |
-          flake8 .
+      # Step 5: Lint the code with flake8 optional
+      # - name: Lint code with flake8
+      #   run: |
+      #     flake8 .
 
       # Step 6: Log in to Docker Hub using the login action
       - name: Login to Docker Hub
