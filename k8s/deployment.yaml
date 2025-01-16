@@ -17,8 +17,8 @@ spec:
           image: tracker-app/task:1.1
           resources:
             requests:
-              memory: "90Mi"
+              memory: "280Mi"
               cpu: "90m"
             limits:
-              memory: "100Mi"
-              cpu: "100m"
+              memory: "290Mi"
+              cpu: "99m"
