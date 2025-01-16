@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: namespaxe
+  namespace: pyinc
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: namespaxe
+  template:
+    metadata:
+      labels:
+        app: namespaxe
+    spec:
+      containers:
+        - name: namespaxe-container
+          image: pyinc/pyinc:ssr-1.2.8
+          resources:
+            requests:
+              memory: "90Mi"
+              cpu: "90m"
+            limits:
+              memory: "100Mi"
+              cpu: "100m"
+      imagePullSecrets:
+        - name: pyinc-secret

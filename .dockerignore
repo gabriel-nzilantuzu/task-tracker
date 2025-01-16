@@ -1,0 +1,33 @@
+# Ignore Python bytecode files
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment directories
+venv/
+env/
+.venv/
+.env/
+
+# Ignore Dockerfile and other sensitive files
+Dockerfile
+.dockerignore
+
+# Ignore database files (if applicable)
+db.sqlite3
+
+# Ignore static files, which will be collected in the container
+static/
+
+# Ignore media files (if applicable)
+media/
+
+# Ignore IDE/editor specific files
+.vscode/
+.idea/
+
+# Ignore other unnecessary files
+*.log
+*.pot
+*.pyc
