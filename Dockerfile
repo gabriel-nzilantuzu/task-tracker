@@ -2,7 +2,7 @@ FROM python:3.9-slim
 
 ENV PYTHONUNBUFFERED=1
 
-# Create a non-root user and group (UID/GID 1000)
+# Create a non-root user and group
 RUN addgroup --system appuser && adduser --system --ingroup appuser --uid 1000 appuser
 
 # Install system dependencies
@@ -11,27 +11,29 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Set working directory and adjust permissions
+# Set working directory and install dependencies
 WORKDIR /app
 COPY requirements.txt .
-
-# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy project files
 COPY . .
 
-# Set permissions for the non-root user
+# Set permissions for non-root user
 RUN chown -R appuser:appuser /app
 
-# Create a directory for static files (adjust as needed)
+# Create and set permissions for static files
 RUN mkdir -p /static && chown -R appuser:appuser /static
 
-# Switch to the non-root user
+# Copy entrypoint script
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Switch to non-root user
 USER appuser
 
-# Expose the port for Gunicorn
+# Expose the app port
 EXPOSE 8000
 
-# Run the application using Gunicorn
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "task_tracker.wsgi:application"]
+# Use entrypoint script
+ENTRYPOINT ["/entrypoint.sh"]
