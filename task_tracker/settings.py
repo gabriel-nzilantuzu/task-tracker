@@ -24,16 +24,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!^5ld_%z=w0=1lo3i5#dr@ortk*u0qm2ri8^o^t4q_qtat2)+2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
-        "https://tracker.ns.namespaxe.com",
+        "https://task-tracker.ns.namespaxe.io",
     ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://tracker.ns.namespaxe.com",
+    "https://task-tracker.ns.namespaxe.io",
 ]
 
 

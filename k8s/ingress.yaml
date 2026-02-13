@@ -2,12 +2,25 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: welcome-app-ingress
+  namespace: defaul
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    cert-manager.io/cluster-issuer: "namespaxe"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/use-forwarded-headers: "true"
+    nginx.ingress.kubernetes.io/real-ip-header: "X-Forwarded-For"
+    nginx.ingress.kubernetes.io/remote-addr-header: "X-Forwarded-For"
+
 spec:
   ingressClassName: nginx
+
+  tls:
+    - hosts:
+        - task-tracker.ns.namespaxe.io
+      secretName: task-tracker-tls
+
   rules:
-    - host: tracker-app.ns.namespaxe.com
+    - host: task-tracker.ns.namespaxe.io
       http:
         paths:
           - path: /
