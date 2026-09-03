@@ -17,6 +17,7 @@ from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+HOST_DOMAIN = config("HOST_DOMAIN")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -30,11 +31,11 @@ DEBUG = False
 ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
-        f"https://{config('HOST_DOMAIN')}",
+        f"https://{HOST_DOMAIN}",
     ]
 
 CORS_ALLOWED_ORIGINS = [
-    f"https://{config('HOST_DOMAIN')}",
+    f"https://{HOST_DOMAIN}",
 ]
 
 
