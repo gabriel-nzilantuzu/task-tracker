@@ -29,11 +29,11 @@ DEBUG = False
 ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
-        "https://task-tracker.ns.namespaxe.io",
+        "https://task-tracker.ns.namespaxe.cloud",
     ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://task-tracker.ns.namespaxe.io",
+    "https://task-tracker.ns.namespaxe.cloud",
 ]
 
 

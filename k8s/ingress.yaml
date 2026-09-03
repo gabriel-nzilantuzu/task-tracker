@@ -16,11 +16,11 @@ spec:
 
   tls:
     - hosts:
-        - task-tracker.ns.namespaxe.io
+        - task-tracker.ns.namespaxe.cloud
       secretName: task-tracker-tls
 
   rules:
-    - host: task-tracker.ns.namespaxe.io
+    - host: task-tracker.ns.namespaxe.cloud
       http:
         paths:
           - path: /

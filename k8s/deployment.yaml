@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: tracker-app-container
-          image: namespaxe/task:1.9
+          image: namespaxe/task:2.0
           resources:
             requests:
               memory: "280Mi"
