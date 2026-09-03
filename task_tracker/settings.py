@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,11 +30,11 @@ DEBUG = False
 ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
-        "https://task-tracker.ns.namespaxe.cloud",
+        f"https://{config('HOST_DOMAIN')}",
     ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://task-tracker.ns.namespaxe.cloud",
+    f"https://{config('HOST_DOMAIN')}",
 ]
 
 

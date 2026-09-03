@@ -2,3 +2,4 @@ Django
 flake8
 coverage
 gunicorn
+decouple
