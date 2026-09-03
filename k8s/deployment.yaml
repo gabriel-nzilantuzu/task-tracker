@@ -14,7 +14,10 @@ spec:
     spec:
       containers:
         - name: tracker-app-container
-          image: namespaxe/task:2.5
+          image: namespaxe/task:2.6
+          env:
+            - name: HOST_DOMAIN
+              value: "task-tracker.namespaxe.cloud"
           resources:
             requests:
               memory: "280Mi"
