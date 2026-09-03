@@ -26,8 +26,6 @@ media/
 *.sublime-project
 *.sublime-workspace
 
-.env
-
 .coverage
 *.coveragerc
 
